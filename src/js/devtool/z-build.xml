@@ -44,9 +44,22 @@
 	-->
 	<target name="compress" depends="concat,replaceregexp">
 		<!-- 压缩JS -->
-        <java jar="${yuicompressor}" fork="true" failonerror="true">
-            <arg line="--type js --charset ${inputencoding} -o ${dist.js}/${module}/${ant.project.name}.js ${dist.js}/${module}/${ant.project.name}-source.js"/>
-        </java>
+        <apply executable="java" verbose="true" dest="${dist.js}/${module}/" failonerror="true">
+            <fileset dir="${dist.js}/${module}/" />
+            <arg line="-jar"/>
+            <arg path="${gcc.jar}"/>
+            <arg line="--compilation_level SIMPLE_OPTIMIZATIONS"/>
+            <!-- http://code.google.com/p/closure-compiler/wiki/Warnings -->
+            <!-- 为VERBOSE模式时检测过于严苛，导致不能正常压缩  -->
+            <arg line="--warning_level QUIET"/>
+            <arg line="--jscomp_off=checkTypes"/>
+            <arg line="--jscomp_error=checkDebuggerStatement"/>
+            <arg line="--js"/>
+            <srcfile/>
+            <arg value="--js_output_file"/>
+            <targetfile/>
+            <mapper type="regexp" from="^(.*)-source\.js$" to="\1.js"/>
+        </apply>
     </target>
 	
 	<!--

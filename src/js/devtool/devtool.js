@@ -26,7 +26,7 @@
 				
 				/**
 				* 获得URL查询字符串键值对象
-				* @returns {Object} || {String}
+				* @return {Object} || {String}
 				*/
 				getUrlParma : function(name){
 					var args = {};
@@ -53,7 +53,7 @@
 				* 获得URL不包含hash部分
 				* http://www.xxx.com/v?z=x&c=x&at=5#tid=1
 				* http://www.xxx.com/v?z=x&c=x&at=5#
-				* @returns {String} http://www.xxx.com/v?z=x&c=x&at=5
+				* @return {String} http://www.xxx.com/v?z=x&c=x&at=5
 				*/
 				getURLExcludeHash : function(){
 					var ap = location.href.indexOf('#');
@@ -62,7 +62,7 @@
 				/**
 				* 获得URL的hash值
 				* 如 http://www.xxx.com/v?z=x&c=x&at=5#tid=1
-				* @returns {Object}
+				* @return {Object}
 				*/
 				getHashValue : function(name,hash){
 					var rt = {};
@@ -128,7 +128,7 @@
 				/**
 				 * 解析特定字符串为日期对象
 				 * @param {String} dateString 日期格式字符串。如: 2011-05-06 18:08:01
-				 * @returns {Date} 返回日期实例
+				 * @return {Date} 返回日期实例
 				 */
 				parseDate : function(dateString){
 					var rt='';
@@ -215,7 +215,7 @@
 				
 				/**
 				 * 把字符串替换成浏览器能识别的url格式
-				 * @returns string
+				 * @return string
 				 */
 				format2Url : function(str){
 					if(ns.util.isUrl(str)){
@@ -380,7 +380,7 @@
 				 * 比较是否短于所给的长度值
 				 * @param v
 				 * @param len
-				 * @returns
+				 * @return
 				 */
 				equalLength : function(v, len){
 					return this.strlen(v) <= len;
@@ -475,9 +475,17 @@
 			});
 			
 			//关闭
-			$('._div-close').click(function(){
+			$('._div-close').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
 				t.hide();
 			});
+            //刷新
+            $('._div-refresh').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                t.refresh();
+            });
 			
 			//编辑框enter
 			t._data.editCtn.keyup(function(e){
@@ -551,9 +559,13 @@
 			this.ifShow = false;
 			this._data.root.hide();
 		};
+        //刷新
+        _fpr.refresh = function(){
+            this._data.root.find('._log-ctn').empty();
+        };
 		_fpr.template = {
 				mainFrame : ['<div style="position:fixed;_position:absolute;bottom:0;left:0;color:#000">',
-				             '	<div class="_developer-toolbar-ctn" style="padding:5px;margin:5px;background:#fff;"><a class="_div-close" href="javascript:void(0)" style="color:black;float:right;text-decoration:none;">关闭</a>控制台<span style="font-size:12px">(按ctrl+1可开关控制台)</span>：</div>',	
+				             '	<div class="_developer-toolbar-ctn" style="padding:5px;margin:5px;background:#fff;"><a class="_div-close" href="javascript:void(0)" style="color:black;float:right;text-decoration:none;">关闭</a><a class="_div-refresh" href="javascript:void(0)" style="color:black;float:right;text-decoration:none;">刷新</a>控制台<span style="font-size:12px">(按ctrl+1可开关控制台)</span>：</div>',
 				             '</div>'],
 				mainFrameCss : {
 					'background'	: '#ccc',
@@ -565,7 +577,8 @@
 					'bottom'		: '0px',
 					'display'		: 'none',
 					'font-size'		: '14px',
-					'line-height'	: '1.5'
+					'line-height'	: '1.5',
+                    'zoome'         : 1
 				},
 				
 				logFrame : ['<div class="_log-ctn"></div>'],
@@ -579,7 +592,7 @@
 					'border' : '1px solid #999'
 				},
 				
-				editer : ['<div style="border:1px solid #555;"><input type="text" class="_editer"></input></div>'],
+				editer : ['<div style="border:1px solid #555;"><input type="text" class="_editer"/></div>'],
 				editerCss : {
 					'width'			: '100%',
 					'border'		: 'none',

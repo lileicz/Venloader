@@ -156,7 +156,6 @@
 			 * 加载资源文件
 			 * @param uri String 地址
 			 * @param callback	Function 加载完资源文件和所有的依赖完毕回调函数
-			 * @returns
 			 * 说明：引入circleUrl是为了防止循环加载，系统自动填充这个参数。
 			 */
 			load : function(uri,callback,circleUrl){
@@ -215,7 +214,7 @@
 			/**
 			 * 存储模块到cachedModules
 			 * @param m Module 模块对象
-			 * @returns
+			 * @return
 			 */
 			saveModule : function(m){
 				var uri = m.id || '';
@@ -224,7 +223,7 @@
 			/**
 			 * 给模块取一个别名
 			 * @param id
-			 * @returns
+			 * @return
 			 */
 			ignore : function(id){
 				var meta = ns.ignoreModuleMeta;
@@ -242,7 +241,7 @@
 			 * load实现方法
 			 * @param uri
 			 * @param callback
-			 * @returns
+			 * @return
 			 */
 			_load : function(uri,callback){
 				var t = this,m,cs=ns.config.charset;
@@ -293,7 +292,7 @@
 			/**
 			 * 把callback存放到callbackList对象中
 			 * @param uri
-			 * @returns
+			 * @return
 			 */
 			_saveCallback : function(uri,callback){
 				if(callbackList[uri]){
@@ -314,7 +313,7 @@
 			 * 加载script并声明load事件
 			 * @param uri String 
 			 * @param callback Function
-			 * @returns
+			 * @return
 			 */
 			_loadScript : function(uri,callback,cs){
 				var node = document.createElement("script");
@@ -346,7 +345,7 @@
 			 * 加载style并声明load事件
 			 * @param uri String
 			 * @param callback Function
-			 * @returns
+			 * @return
 			 */
 			_loadStyle : function(uri,callback,cs){
 				var node = document.createElement("link");
@@ -388,7 +387,7 @@
 			 * 循环检测是否加载css资源是否加载完毕
 			 * @param node
 			 * @param callback
-			 * @returns
+			 * @return
 			 */
 			_poll : function(node, callback) {
 			    var isLoaded,t=this;
@@ -457,7 +456,7 @@
 			    /**
 			     * 获取当前script的绝对地址
 			     * @param node
-			     * @returns
+			     * @return
 			     */
 			    _getScriptAbsoluteSrc : function(node) {
 			      return node.hasAttribute ? // non-IE6/7
