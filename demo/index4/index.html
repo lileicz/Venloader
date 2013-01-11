@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>测试模块依赖加载(别名)</title>
+<style>
+	*{margin:0;padding:0;}
+</style>
+<script src="../../static/js/amkit/amkit.js"></script>
+<script src="../../static/js/amkit-config.js"></script>
+</head>
+<script>
+amkit('./module1',function(m){
+	log('所有的加载工作准备好，并拿到module1返回值');
+	log(m);
+});
+</script>
+<body>
+module1 压缩了 module1 2 3 三个模块。<br/>
+在控制台输入：<br/>
+amkit.use('./module2',function(m){log('m')});<br/>
+如果没有发起对module2模块的请求，则正常<br/>
+</body>
+</html>

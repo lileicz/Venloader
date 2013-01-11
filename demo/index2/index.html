@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>测试模块依赖加载(循环)</title>
+<style>
+	*{margin:0;padding:0;}
+</style>
+<script src="../../static/js/amkit/amkit.js"></script>
+<script src="../../static/js/amkit-config.js"></script>
+</head>
+<script>
+amkit('./module1',function(m){
+	log('所有的加载工作准备好，并拿到module1返回值');
+	log(m);
+});
+</script>
+<body>
+module1-->module2<br/>
+module2-->module3<br/>
+module3-->module1<br/>
+</body>
+</html>
