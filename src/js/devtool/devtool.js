@@ -15,6 +15,7 @@
 			var toString = Object.prototype.toString;
 			
 			return {
+				
 				/**
 				 * 获得window.location.href的值，不包含hash值
 				 */
