@@ -1,4 +1,4 @@
-(function(){
+amkit.add(['jquery'],function(){
 	var devtool = {};
 	(function(ns){
 		/**
@@ -610,6 +610,7 @@
 			};
 		})();
 	})(devtool,jQuery);
-})();
+    return devtool;
+});
 	
 

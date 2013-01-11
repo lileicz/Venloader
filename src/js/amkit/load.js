@@ -225,7 +225,7 @@
 			 * @param id
 			 * @return
 			 */
-			ignore : function(id){
+            alias : function(id){
 				var meta = ns.ignoreModuleMeta;
 					deps = meta.deps,
 					factory = meta.factory,
@@ -538,8 +538,8 @@
 	 * 显示声明某些模块不用再加载，即使没加载。即取一个别名
 	 * @param ids String or Array
 	 */
-	ns.ignore = function(id){
-		L.ignore(id);
+	ns.alias = function(id){
+		L.alias(id);
 	};
 	
 	ns.cache = cachedModules;
