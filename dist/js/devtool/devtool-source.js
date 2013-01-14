@@ -1,4 +1,4 @@
-venloader.add(['jquery'],function(){
+VL.add(['jquery'],function(){
 	var devtool = {};
 	(function(ns){
 		/**

@@ -9,11 +9,12 @@
  * 简洁：
  * ns.add([],function(){})
  */
-if(typeof(amkit)=='undefined'){
-	amkit = function(){
-		var args = amkit.util.makeArray(arguments);
+if(typeof(vloader)=='undefined'){
+	vloader = function(){
+		var args = vloader.util.makeArray(arguments);
 		return arguments.callee.use.apply(this,args);
 	};
+    window.VL=vloader;
 }
 
 /**
@@ -160,7 +161,7 @@ if(typeof(amkit)=='undefined'){
     	      }
 		};
 	})();
-})(amkit);
+})(vloader);
 
 
 (function(ns) {
@@ -428,7 +429,7 @@ if(typeof(amkit)=='undefined'){
 	  util.pageUri = pageUri
 	  util.getScriptAbsoluteSrc=getScriptAbsoluteSrc
 
-	})(amkit);
+	})(vloader);
 /**
  * 为了保证seeds文件小巧，
  * 暂时不加各种浏览器下的调试器
@@ -437,7 +438,7 @@ if(typeof(amkit)=='undefined'){
 	ns.util.log = function(str){
 		console&&console.log(str);
 	};
-})(amkit);
+})(vloader);
 (function(ns){
 	
 	/*
@@ -983,7 +984,7 @@ if(typeof(amkit)=='undefined'){
 	};
 	
 	ns.cache = cachedModules;
-})(amkit);
+})(VL);
 /**
  * config
  * 配置根路径，别名，调试/非调试模式
@@ -1053,4 +1054,4 @@ if(typeof(amkit)=='undefined'){
 
         return root + paths[0]
     }
-})(amkit);
+})(VL);
