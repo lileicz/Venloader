@@ -1,4 +1,4 @@
-<project name="amkit" basedir="../../../" default="copy">
+<project name="Venloader" basedir="../../../" default="copy">
 	<description>每个模块都要单独配置module的路径和合并js的顺序</description>
 	<import file="../../../tools/build-common.xml"/>
 	<!--
@@ -36,11 +36,11 @@
 			destfile="${dist.js}/${module}/${ant.project.name}-source.js" force="no" fixlastline="true">
 		    <filelist dir="${src.js}/${module}" 
 		    	files= "seeds.js,
-		    			config.js,
 		    			util-lang.js,
 	    				util-path.js,
 		    			util-log.js,
-		    			load.js"/>
+		    			load.js,
+		    			config.js"/>
 	    </concat>
 	</target>
 
@@ -73,7 +73,10 @@
 	<target name="copy" depends="compress">
 	   <copy todir="${static}/js/${module}">
             <fileset dir="${dist.js}/${module}" includes="**/*.*" defaultexcludes="true"/>
-       </copy>   
+       </copy>
+        <copy todir="${static}/js">
+            <file file="${dist.js}/${module}/${module}.js" ></file>
+        </copy>
     </target>
 	
 	<!--

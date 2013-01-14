@@ -14,7 +14,7 @@
 			/**
 			 * 是否为数字
 			 * @param val
-			 * @returns
+			 * @return
 			 */
 			isNumber : function(val){
 				return typeof(val) === 'number';
@@ -23,7 +23,7 @@
 			/**
 			 * 是否为字符串
 			 * @param val
-			 * @returns
+			 * @return
 			 */
 			isString : function(val) {
 			    return toString.call(val) === '[object String]';
@@ -32,7 +32,7 @@
 			 /**
 			  * 是否function
 			  * @param val
-			  * @returns
+			  * @return
 			  */
 			isFunction : function(val) {
 			    return toString.call(val) === '[object Function]';
@@ -41,7 +41,7 @@
 			/**
 			 * 是否为正则对象
 			 * @param val
-			 * @returns
+			 * @return
 			 */
 			isRegExp : function(val) {
 			    return toString.call(val) === '[object RegExp]';
@@ -50,7 +50,7 @@
 			/**
 			 * 是否为object对象
 			 * @param val
-			 * @returns
+			 * @return
 			 */
 			isObject : function(val) {
 			    return val === Object(val);
@@ -66,7 +66,7 @@
 			/**
 			 * 主要针对有length属性的对象，例如arguments
 			 * @param o
-			 * @returns
+			 * @return
 			 */
 			makeArray:function (o) {
                 if (o == null) {

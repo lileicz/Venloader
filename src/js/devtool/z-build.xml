@@ -68,7 +68,11 @@
 	<target name="copy" depends="compress">
 	   <copy todir="${static}/js/${module}">
             <fileset dir="${dist.js}/${module}" includes="**/*.*" defaultexcludes="true"/>
-       </copy>   
+       </copy>
+        <copy todir="${static}/js">
+            <file file="${dist.js}/${module}/${module}.js" ></file>
+        </copy>
+
     </target>
 	
 	<!--

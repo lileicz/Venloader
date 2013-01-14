@@ -1,4 +1,4 @@
-amkit.add(['jquery'],function(){
+venloader.add(['jquery'],function(){
 	var devtool = {};
 	(function(ns){
 		/**
