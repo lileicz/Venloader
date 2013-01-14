@@ -19,4 +19,4 @@
 			'devtool' : 'static/js/devtool/devtool'
 	};
 	config.preload = config.debug?['jquery','devtool']:['jquery'];
-})(amkit);
+})(VL);

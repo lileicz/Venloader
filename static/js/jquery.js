@@ -1,4 +1,4 @@
-amkit.add(function(){
+VL.add(function(){
 /*!
  * jQuery JavaScript Library v1.6.3
  * http://jquery.com/
