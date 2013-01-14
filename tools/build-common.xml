@@ -1,4 +1,4 @@
-<project name="amkit" basedir="../" default="">
+<project name="VenloaderCommon" basedir="../" default="">
 	<description>通用文件，用于其他模块引用</description>
 	<property name="lib" location="tools" />
 	<property name="static" location="static" />
