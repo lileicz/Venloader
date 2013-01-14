@@ -6,11 +6,11 @@
 <style>
 	*{margin:0;padding:0;}
 </style>
-<script src="../../static/js/amkit/amkit.js"></script>
+<script src="../../static/js/loader/loader.js"></script>
 <script src="../../static/js/amkit-config.js"></script>
 </head>
 <script>
-amkit('./module1',function(m){
+VL('./module1',function(m){
 	log('所有的加载工作准备好，并拿到module1返回值');
 	log(m);
 });
@@ -18,7 +18,7 @@ amkit('./module1',function(m){
 <body>
 module1 压缩了 module1 2 3 三个模块。<br/>
 在控制台输入：<br/>
-amkit.use('./module2',function(m){log('m')});<br/>
+VL.use('./module2',function(m){log('m')});<br/>
 如果没有发起对module2模块的请求，则正常<br/>
 </body>
 </html>

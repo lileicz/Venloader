@@ -1,5 +1,5 @@
-amkit.add('./module2',function(){
-	log('module1(alias module3) compiled');
+VL.add('./module2',function(){
+	log('module4 compiled');
 	return {
 		name : 'module1'
 	};
